@@ -11,6 +11,7 @@ let tracksObj = {
         price: 1.00,
         inCart: false,
     }
+    
 }
 
 let shoppingCartObj = {
@@ -18,9 +19,51 @@ let shoppingCartObj = {
     totalPrice: 0.00
 }
 
-const shopContainer = document.getElementById("shopContainer")
+let tracksObjLength = Object.keys(tracksObj).length
 
+    for (let i=0; i<tracksObjLength; i++) {
 
+        const shopContainer = document.getElementById("shopContainer")
+        var beatContainer = document.createElement("div");   
+        beatContainer.classList.add("beatContainer");
+        shopContainer.appendChild(beatContainer);
+
+        var coverArtContainer = document.createElement("div"); 
+        coverArtContainer.classList.add("coverArtContainer");
+        beatContainer.appendChild(coverArtContainer);
+        var coverArtPic = document.createElement("img"); 
+        coverArtPic.classList.add("coverArtPic");
+        coverArtContainer.appendChild(coverArtPic);
+
+        var titleContainer = document.createElement("div"); 
+        titleContainer.classList.add("titleContainer");
+        beatContainer.appendChild(titleContainer);
+        var title = document.createElement("div"); 
+        title.classList.add("title");
+        titleContainer.appendChild(title);
+
+        var priceContainer = document.createElement("div"); 
+        priceContainer.classList.add("priceContainer");
+        beatContainer.appendChild(priceContainer);
+        var price = document.createElement("div"); 
+        price.classList.add("price");
+        priceContainer.appendChild(price);
+
+        var addToCartContainer = document.createElement("div"); 
+        addToCartContainer.classList.add("addToCartContainer");
+        beatContainer.appendChild(addToCartContainer);
+        var addToCartText = document.createElement("div"); 
+        addToCartText.classList.add("addToCartText");
+        var addToCartTextNode = document.createTextNode("Add to Cart"); 
+        addToCartText.appendChild(addToCartTextNode);
+        addToCartContainer.appendChild(addToCartText);
+        var addToCartIcon = document.createElement("div"); 
+        addToCartIcon.classList.add("addToCartIcon");
+        addToCartContainer.appendChild(addToCartIcon);
+        var fontAwesomeIcon = document.createElement("i");
+        fontAwesomeIcon.classList.add("fas", "fa-shopping-cart", "fa-3x"); 
+        addToCartIcon.appendChild(fontAwesomeIcon);
+    }
 
 // const tracks is an array of how many different songs I will be displaying on the screen
 const tracks = document.getElementsByClassName("beatContainer")
