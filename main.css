@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Fjalla One', sans-serif;
+}
+
+html { font-size: calc(.6em + 1vw) }
+
+#shoppingCart {
+    position: absolute;
+    height: 100px;
+    width: 20%;
+    right: 20px;
+    top: 0;
+    border: 1px solid black;
+    font-size: .5em;
+    text-align: left;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+ }
+
+ table {
+    border-collapse: collapse;
+}
+
+
+
+#shopContainer {
+    height: auto;
+    width: 800px;
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 200px;
+    overflow: hidden;
+    border-radius: 1%;
+    /* font-size: 2vw; */
+}
+
+@media only screen and (max-width: 800px) {
+    #shopContainer {
+        width: auto;
+    }
+}
+
+.beatContainer {
+    height: 120px;
+    width: 100%;
+    display: flex;
+}
+
+.coverArtContainer {
+    height: 100%;
+    width: 20%;
+    border: 1px solid black;
+}
+
+.coverArtPic {
+    height: 100%;
+    width: 100%;
+}
+
+.titleContainer {
+    height: 100%;
+    width: 50%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.title {
+    /* height: 100%; */
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 10%;
+    /* font-size: 2em; */
+}
+
+.priceContainer {
+    height: 100%;
+    width: 20%;
+    border: 1px solid black;
+    position: relative;
+}
+
+.price  {
+    /* width: 100%; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* margin-left: 10%; */
+}
+
+.addToCartContainer {
+    height: 100%;
+    width: 20%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.addToCartText {
+    width: 100%;
+    height: 20%;
+    /* margin: auto; */
+    text-align: center;
+}
+
+.addToCartIcon {
+    /* width: 100%; */
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    color: blue; 
+    margin-top: 10%;
+}
+
+.heartContainer {
+    height: 100%;
+    width: 10%;
+    border: 1px solid black;
+}
+
