@@ -21,27 +21,20 @@ let shoppingCartObj = {
 const tracks = document.getElementsByClassName("beatContainer") 
 console.log(tracks.length)
 
-// For loop loads the titles and prices for every track
+// For loop loads the cover Art, titles and prices for every track
 
-for(let i=1; i<=tracks.length; i++) {
-    window[`track${i}`] =  document.getElementById(`track${i}`)
-    window[`track${i}Title`] = window[`track${i}`].querySelector(".titleContainer").querySelector(".title").innerText = tracksObj[`track${i}`].name
-    window[`track${i}Price`] = window[`track${i}`].querySelector(".priceContainer").querySelector(".price").innerText = `$${tracksObj[`track${i}`].price}.00`
-
+for(let i=0; i<tracks.length; i++) {
+    window[`track${i+1}`] =  tracks[i]
+    window[`track${i+1}Title`] = window[`track${i+1}`].querySelector(".titleContainer").querySelector(".title").innerText = tracksObj[`track${i+1}`].name
+    window[`track${i+1}Price`] = window[`track${i+1}`].querySelector(".priceContainer").querySelector(".price").innerText = `$${tracksObj[`track${i+1}`].price}.00`
+    window[`track${i+1}CoverArt`] = window[`track${i+1}`].querySelector(".coverArtContainer").querySelector(".coverArtPic").src = tracksObj[`track${i+1}`].coverArt
 }
 
 
-
-
-// let track1Title = track1.querySelector(".titleContainer").querySelector(".title").innerText = tracksObj.track1.name
-// let track1Price = track1.querySelector(".priceContainer").querySelector(".price").innerText = `$${tracksObj.track1.price}.00`
-
-// let track2Title = track2.querySelector(".titleContainer").querySelector(".title").innerText = tracksObj.track2.name
-// let track2Price = track2.querySelector(".priceContainer").querySelector(".price").innerText = `$${tracksObj.track2.price}.00`
 let totalItems = document.getElementById("totalItems")
 const addItemButton = document.getElementsByClassName("addToCartContainer") 
 
-function printID() {
+function addAndRemoveFromCart() {
 
     let id = this.id
 
@@ -66,7 +59,7 @@ function printID() {
 }
 
 for (let i=0; i<addItemButton.length; i++) {
-    addItemButton[i].addEventListener("click", printID)
+    addItemButton[i].addEventListener("click", addAndRemoveFromCart)
 
 }
 
@@ -75,13 +68,6 @@ totalItems.innerText=shoppingCartObj.items
 let totalPrice = document.getElementById("totalPrice")
 totalPrice.innerText=`$${shoppingCartObj.totalPrice}.00`
 
-
-
-function addToCart() {
-    shoppingCartObj.items++ 
-    totalItems.innerText=shoppingCartObj.items
-    totalPrice.innerText=`$${shoppingCartObj.totalPrice}.00`
-}
 
 
 
