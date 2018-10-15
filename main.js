@@ -10,6 +10,18 @@ let tracksObj = {
         coverArt: "Strictly4theMusicLogo.jpg",
         price: 1.00,
         inCart: false,
+    },
+    track3: {
+        name: "iughefljbnefkljbnl",
+        coverArt: "Strictly4theMusicLogo.jpg",
+        price: 1.00,
+        inCart: false,
+    },
+    track4: {
+        name: "I Got You",
+        coverArt: "Strictly4theMusicLogo.jpg",
+        price: 12.00,
+        inCart: false,
     }
     
 }
