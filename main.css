@@ -32,7 +32,7 @@ table, th, td {
     height: auto;
     width: 800px;
     margin: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-top: 200px;
     overflow: hidden;
     border-radius: 1%;
@@ -49,6 +49,7 @@ table, th, td {
     height: 120px;
     width: 100%;
     display: flex;
+    margin-bottom: 20px;
 }
 
 .coverArtContainer {
