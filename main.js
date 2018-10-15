@@ -34,7 +34,12 @@ for(let i=0; i<tracks.length; i++) {
 let totalItems = document.getElementById("totalItems")
 const addItemButton = document.getElementsByClassName("addToCartContainer") 
 
-function addAndRemoveFromCart() {
+function addAndRemoveFromCart(e) {
+
+    console.log(this.className)
+
+
+    console.log(e.target)
 
     let id = this.id
 
