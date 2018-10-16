@@ -36,7 +36,7 @@ let audioSource = document.getElementById("audioSource")
 audioSource.src = tracksObj.track1.soundfile
 audioPlayer.load()
 
-let currentTrack;
+let currentTrack = 1;
 
 let tracksObjLength = Object.keys(tracksObj).length
 
@@ -144,7 +144,7 @@ function playAndPauseTrack() {
     let id = this.id
     id = id[id.length - 1]
 
-    if (currentTrack === undefined) {
+    if (firstPlay === undefined) {
         currentTrack = id;
         // if firstPlay is set to true, this means an audio track has to be loaded
         firstPlay = true
@@ -194,6 +194,10 @@ let totalPrice = document.getElementById("totalPrice")
 totalPrice.innerText = `$${(shoppingCartObj.totalPrice).toFixed(2)}`
 
 
+function getTrack () {
+    console.log(currentTrack)
+}
 
+audioPlayer.addEventListener("click", getTrack)
 
 
