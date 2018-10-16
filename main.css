@@ -35,7 +35,7 @@ table, th, td {
     /* border: 1px solid black; */
     margin-top: 200px;
     overflow: hidden;
-    border-radius: 1%;
+    /* border-radius: 1%; */
     /* font-size: 2vw; */
 }
 
@@ -121,9 +121,23 @@ table, th, td {
     margin-top: 10%;
 }
 
-.heartContainer {
+.playTrackContainer {
     height: 100%;
     width: 10%;
     border: 1px solid black;
+    display: relative;
+}
+
+.fontAwesomePlayTrackIcon {
+    margin-top: 55%;
+    margin-left: 15px;
+    width: 100%;
+    height: 100%;
+    /* position: absolute;
+    width: 100% ;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
+
 }
 
