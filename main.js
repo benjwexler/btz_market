@@ -163,9 +163,10 @@ function playAndPauseTrack() {
         currentTrack = id;
         // if firstPlay is set to true, this means an audio track has to be loaded
         firstPlay = true
-    } else {
-        firstPlay = false 
-    }
+    } 
+    // else {
+    //     firstPlay = false 
+    // }
 
     // If statement to determine if track should have play or pause icon
     if (tracksObj[`track${id}`].isPlaying === false) {
@@ -186,6 +187,8 @@ function playAndPauseTrack() {
         window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
 
     }
+
+    firstPlay = false 
 
     currentTrack = id;
 
