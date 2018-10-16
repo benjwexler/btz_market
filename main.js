@@ -153,7 +153,8 @@ function addAndRemoveFromCart() {
 }
 
 
-let firstPlay
+let firstPlay;
+
 
 function playAndPauseTrack() {
     let id = this.id
@@ -189,7 +190,6 @@ function playAndPauseTrack() {
     }
 
     firstPlay = false 
-
     currentTrack = id;
 
     tracksObj[`track${id}`].isPlaying = !tracksObj[`track${id}`].isPlaying
