@@ -130,14 +130,14 @@ function addAndRemoveFromCart() {
         window[`track${id}`].querySelector(".addToCartContainer").querySelector(".addToCartIcon").innerHTML = '<i class="fas fa-times fa-3x"></i>'
         window[`track${id}`].querySelector(".addToCartContainer").querySelector(".addToCartText").innerText = "Remove"
         shoppingCartObj.totalPrice += tracksObj[`track${id}`].price
-        totalPrice.innerText = `$${shoppingCartObj.totalPrice}`
+        totalPrice.innerText = `$${(shoppingCartObj.totalPrice).toFixed(2)}`
         shoppingCartObj.items++
         totalItems.innerText = shoppingCartObj.items
     } else {
         window[`track${id}`].querySelector(".addToCartContainer").querySelector(".addToCartIcon").innerHTML = '<i class="fas fa-shopping-cart fa-3x"></i>'
         window[`track${id}`].querySelector(".addToCartContainer").querySelector(".addToCartText").innerText = "Add to Cart"
         shoppingCartObj.totalPrice -= tracksObj[`track${id}`].price
-        totalPrice.innerText = `$${shoppingCartObj.totalPrice}`
+        totalPrice.innerText = `$${(shoppingCartObj.totalPrice).toFixed(2)}`
         shoppingCartObj.items--
         totalItems.innerText = shoppingCartObj.items
     }
@@ -185,7 +185,7 @@ for (let i = 0; i < addItemButton.length; i++) {
 totalItems.innerText = shoppingCartObj.items
 
 let totalPrice = document.getElementById("totalPrice")
-totalPrice.innerText = `$${shoppingCartObj.totalPrice}.00`
+totalPrice.innerText = `$${(shoppingCartObj.totalPrice).toFixed(2)}`
 
 
 
