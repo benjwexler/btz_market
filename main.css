@@ -26,6 +26,12 @@ table, th, td {
     border-collapse: collapse;
 }
 
+#audio {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 
 
 #shopContainer {
