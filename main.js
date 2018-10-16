@@ -36,7 +36,7 @@ let audioSource = document.getElementById("audioSource")
 audioSource.src = tracksObj.track1.soundfile
 audioPlayer.load()
 
-let currentTrack;
+let currentTrack = 1;
 
 let tracksObjLength = Object.keys(tracksObj).length
 
@@ -93,7 +93,6 @@ for (let i = 0; i < tracksObjLength; i++) {
 
 // const tracks is an array of how many different songs I will be displaying on the screen
 const tracks = document.getElementsByClassName("beatContainer")
-console.log(tracks.length)
 
 // For loop loads the cover Art, titles and prices for every track
 
@@ -103,7 +102,6 @@ for (let i = 0; i < tracks.length; i++) {
     window[`track${i + 1}Price`] = window[`track${i + 1}`].querySelector(".priceContainer").querySelector(".price").innerText = `$${tracksObj[`track${i + 1}`].price}`
     window[`track${i + 1}CoverArt`] = window[`track${i + 1}`].querySelector(".coverArtContainer").querySelector(".coverArtPic").src = tracksObj[`track${i + 1}`].coverArt
 }
-
 
 let totalItems = document.getElementById("totalItems")
 
@@ -145,7 +143,7 @@ function playAndPauseTrack() {
     let id = this.id
     id = id[id.length - 1]
 
-    if (currentTrack === undefined) {
+    if (firstPlay === undefined) {
         currentTrack = id;
         // if firstPlay is set to true, this means an audio track has to be loaded
         firstPlay = true
@@ -195,6 +193,16 @@ let totalPrice = document.getElementById("totalPrice")
 totalPrice.innerText = `$${(shoppingCartObj.totalPrice).toFixed(2)}`
 
 
+function changeIconFromAudioController () {
+    if (tracksObj[`track${currentTrack}`].isPlaying === false) {
+        window[`track${currentTrack}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-pause fa-2x fontAwesomePlayTrackIcon"></i>'
+        
+    } else {
+        window[`track${currentTrack}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
+    }
+    tracksObj[`track${currentTrack}`].isPlaying = !tracksObj[`track${currentTrack}`].isPlaying
+}
 
+audioPlayer.addEventListener("click", changeIconFromAudioController)
 
 
