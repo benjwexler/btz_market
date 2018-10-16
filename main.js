@@ -2,7 +2,7 @@ let tracksObj = {
     track1: {
         name: "Strictly for the Music",
         coverArt: "Strictly4theMusicLogo.jpg",
-        price: 207.57,
+        price: 1.00,
         inCart: false,
         soundfile: "Strictly for the Music.wav",
         isPlaying: false,
@@ -10,33 +10,17 @@ let tracksObj = {
     track2: {
         name: "I Got You",
         coverArt: "Strictly4theMusicLogo.jpg",
-        price: 1.01,
+        price: 1.0,
         inCart: false,
         soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
         isPlaying: false,
     },
     track3: {
-        name: "I Got You",
+        name: "Aura",
         coverArt: "Strictly4theMusicLogo.jpg",
         price: 1.00,
         inCart: false,
-        soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
-        isPlaying: false,
-    },
-    track4: {
-        name: "I Got You",
-        coverArt: "Strictly4theMusicLogo.jpg",
-        price: 1.00,
-        inCart: false,
-        soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
-        isPlaying: false,
-    },
-    track5: {
-        name: "I Got You",
-        coverArt: "Strictly4theMusicLogo.jpg",
-        price: 1.00,
-        inCart: false,
-        soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
+        soundfile: "Wex - Aura (ft. Waywoc) 4.wav",
         isPlaying: false,
     }
 }
@@ -154,7 +138,8 @@ function addAndRemoveFromCart() {
 }
 
 
-let firstPlay
+let firstPlay;
+
 
 function playAndPauseTrack() {
     let id = this.id
@@ -190,7 +175,6 @@ function playAndPauseTrack() {
     }
 
     firstPlay = false 
-
     currentTrack = id;
 
     tracksObj[`track${id}`].isPlaying = !tracksObj[`track${id}`].isPlaying
