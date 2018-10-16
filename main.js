@@ -30,6 +30,14 @@ let tracksObj = {
         inCart: false,
         soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
         isPlaying: false,
+    },
+    track5: {
+        name: "I Got You",
+        coverArt: "Strictly4theMusicLogo.jpg",
+        price: 1.00,
+        inCart: false,
+        soundfile: "MKHL - I Got You (Prod. by Wex).mp3",
+        isPlaying: false,
     }
 }
 
@@ -42,56 +50,56 @@ let currentTrack;
 
 let tracksObjLength = Object.keys(tracksObj).length
 
-    for (let i=0; i<tracksObjLength; i++) {
+for (let i = 0; i < tracksObjLength; i++) {
 
-        const shopContainer = document.getElementById("shopContainer")
-        var beatContainer = document.createElement("div");   
-        beatContainer.classList.add("beatContainer");
-        shopContainer.appendChild(beatContainer);
+    const shopContainer = document.getElementById("shopContainer")
+    var beatContainer = document.createElement("div");
+    beatContainer.classList.add("beatContainer");
+    shopContainer.appendChild(beatContainer);
 
-        var coverArtContainer = document.createElement("div"); 
-        coverArtContainer.classList.add("coverArtContainer");
-        beatContainer.appendChild(coverArtContainer);
-        var coverArtPic = document.createElement("img"); 
-        coverArtPic.classList.add("coverArtPic");
-        coverArtContainer.appendChild(coverArtPic);
+    var coverArtContainer = document.createElement("div");
+    coverArtContainer.classList.add("coverArtContainer");
+    beatContainer.appendChild(coverArtContainer);
+    var coverArtPic = document.createElement("img");
+    coverArtPic.classList.add("coverArtPic");
+    coverArtContainer.appendChild(coverArtPic);
 
-        var titleContainer = document.createElement("div"); 
-        titleContainer.classList.add("titleContainer");
-        beatContainer.appendChild(titleContainer);
-        var title = document.createElement("div"); 
-        title.classList.add("title");
-        titleContainer.appendChild(title);
+    var titleContainer = document.createElement("div");
+    titleContainer.classList.add("titleContainer");
+    beatContainer.appendChild(titleContainer);
+    var title = document.createElement("div");
+    title.classList.add("title");
+    titleContainer.appendChild(title);
 
-        var priceContainer = document.createElement("div"); 
-        priceContainer.classList.add("priceContainer");
-        beatContainer.appendChild(priceContainer);
-        var price = document.createElement("div"); 
-        price.classList.add("price");
-        priceContainer.appendChild(price);
+    var priceContainer = document.createElement("div");
+    priceContainer.classList.add("priceContainer");
+    beatContainer.appendChild(priceContainer);
+    var price = document.createElement("div");
+    price.classList.add("price");
+    priceContainer.appendChild(price);
 
-        var addToCartContainer = document.createElement("div"); 
-        addToCartContainer.classList.add("addToCartContainer");
-        beatContainer.appendChild(addToCartContainer);
-        var addToCartText = document.createElement("div"); 
-        addToCartText.classList.add("addToCartText");
-        var addToCartTextNode = document.createTextNode("Add to Cart"); 
-        addToCartText.appendChild(addToCartTextNode);
-        addToCartContainer.appendChild(addToCartText);
-        var addToCartIcon = document.createElement("div"); 
-        addToCartIcon.classList.add("addToCartIcon");
-        addToCartContainer.appendChild(addToCartIcon);
-        var fontAwesomeIcon = document.createElement("i");
-        fontAwesomeIcon.classList.add("fas", "fa-shopping-cart", "fa-3x"); 
-        addToCartIcon.appendChild(fontAwesomeIcon);
+    var addToCartContainer = document.createElement("div");
+    addToCartContainer.classList.add("addToCartContainer");
+    beatContainer.appendChild(addToCartContainer);
+    var addToCartText = document.createElement("div");
+    addToCartText.classList.add("addToCartText");
+    var addToCartTextNode = document.createTextNode("Add to Cart");
+    addToCartText.appendChild(addToCartTextNode);
+    addToCartContainer.appendChild(addToCartText);
+    var addToCartIcon = document.createElement("div");
+    addToCartIcon.classList.add("addToCartIcon");
+    addToCartContainer.appendChild(addToCartIcon);
+    var fontAwesomeIcon = document.createElement("i");
+    fontAwesomeIcon.classList.add("fas", "fa-shopping-cart", "fa-3x");
+    addToCartIcon.appendChild(fontAwesomeIcon);
 
-        var playTrackContainer = document.createElement("div"); 
-        playTrackContainer.classList.add("playTrackContainer");
-        beatContainer.appendChild(playTrackContainer);
-        var fontAwesomePlayTrackIcon = document.createElement("i");
-        fontAwesomePlayTrackIcon.classList.add("fas", "fa-play", "fa-2x", "fontAwesomePlayTrackIcon"); 
-        playTrackContainer.appendChild(fontAwesomePlayTrackIcon);
-    }
+    var playTrackContainer = document.createElement("div");
+    playTrackContainer.classList.add("playTrackContainer");
+    beatContainer.appendChild(playTrackContainer);
+    var fontAwesomePlayTrackIcon = document.createElement("i");
+    fontAwesomePlayTrackIcon.classList.add("fas", "fa-play", "fa-2x", "fontAwesomePlayTrackIcon");
+    playTrackContainer.appendChild(fontAwesomePlayTrackIcon);
+}
 
 // const tracks is an array of how many different songs I will be displaying on the screen
 const tracks = document.getElementsByClassName("beatContainer")
@@ -138,36 +146,32 @@ function addAndRemoveFromCart() {
 
 }
 
+
 function playAndPauseTrack() {
     let id = this.id
     id = id[id.length - 1]
 
     if (currentTrack === undefined) {
-      
-        // currentTrack = tracksObj[`track${id}`];
-        currentTrack = id 
-        window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
-        
-    } else {
-        window[`track${currentTrack}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
+        currentTrack = id
     }
-
-    
-    tracksObj[`track${id}`].isPlaying = false
-    
-    // currentTrack = tracksObj[`track${id}`];
 
     console.log(currentTrack);
 
-//    currentTrack.querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
     // If statement to determine if track should have play or pause icon
     if (tracksObj[`track${id}`].isPlaying === false) {
         window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-pause fa-2x fontAwesomePlayTrackIcon"></i>'
+        if (currentTrack != id) {
+            window[`track${currentTrack}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
+            tracksObj[`track${currentTrack}`].isPlaying = false
+        }
     } else {
-        // window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
+        window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
     }
+
     currentTrack = id;
+
     tracksObj[`track${id}`].isPlaying = !tracksObj[`track${id}`].isPlaying
+
 }
 
 for (let i = 0; i < addItemButton.length; i++) {
