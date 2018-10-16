@@ -46,6 +46,12 @@ let shoppingCartObj = {
     totalPrice: 0.00
 }
 
+let audioPlayer = document.getElementById("audio")
+let audioSource = document.getElementById("audioSource")
+
+audioSource.src = tracksObj.track1.soundfile
+audioPlayer.load()
+
 let currentTrack;
 
 let tracksObjLength = Object.keys(tracksObj).length
@@ -147,25 +153,38 @@ function addAndRemoveFromCart() {
 }
 
 
+let firstPlay
+
 function playAndPauseTrack() {
     let id = this.id
     id = id[id.length - 1]
 
     if (currentTrack === undefined) {
-        currentTrack = id
+        currentTrack = id;
+        // if firstPlay is set to true, this means an audio track has to be loaded
+        firstPlay = true
+    } else {
+        firstPlay = false 
     }
-
-    console.log(currentTrack);
 
     // If statement to determine if track should have play or pause icon
     if (tracksObj[`track${id}`].isPlaying === false) {
+        audioSource.src = tracksObj[`track${id}`].soundfile
+        if (currentTrack != id || (firstPlay === true) ) {
+            audioPlayer.load()
+        }
+
+        audioPlayer.play()
         window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-pause fa-2x fontAwesomePlayTrackIcon"></i>'
         if (currentTrack != id) {
+
             window[`track${currentTrack}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
             tracksObj[`track${currentTrack}`].isPlaying = false
         }
     } else {
+        audioPlayer.pause()
         window[`track${id}`].querySelector(".playTrackContainer").innerHTML = '<i class="fas fa-play fa-2x fontAwesomePlayTrackIcon"></i>'
+
     }
 
     currentTrack = id;
